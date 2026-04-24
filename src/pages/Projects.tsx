@@ -77,7 +77,6 @@ const Projects = () => {
                 whileHover={{ y: -10, rotateX: 4, rotateY: -4 }}
                 style={{ transformStyle: "preserve-3d", perspective: 1000 }}
                 className="group relative glass rounded-2xl p-6 overflow-hidden cursor-pointer"
-                loading="lazy"
               >
                 {/* Animated colored aura */}
                 <motion.div
