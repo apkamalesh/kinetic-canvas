@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const socials = [
-  { Icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-primary" },
-  { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-primary" },
-  { Icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-primary" },
-  { Icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "hover:text-secondary" },
-  { Icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "hover:text-secondary" },
+  { Icon: Github, href: "https://github.com/apkamalesh", label: "GitHub", color: "hover:text-primary" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/kamalesh-a-p0910/", label: "LinkedIn", color: "hover:text-primary" },
+  { Icon: Twitter, href: "https://x.com/kamalesh0910kk", label: "Twitter", color: "hover:text-primary" },
+  { Icon: Instagram, href: "https://www.instagram.com/_._kamalesh._/", label: "Instagram", color: "hover:text-secondary" },
 ];
 
 const SocialLinks = () => {

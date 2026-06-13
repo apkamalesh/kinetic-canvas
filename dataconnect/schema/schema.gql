@@ -1,0 +1,46 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  bio: String
+  photoUrl: String
+  linkedinUrl: String
+  githubUrl: String
+  personalWebsiteUrl: String
+  isPublic: Boolean
+}
+
+type Project @table {
+  user: User!
+  title: String!
+  description: String!
+  createdAt: Timestamp!
+  liveUrl: String
+  githubUrl: String
+  technologies: [String]
+  coverImageUrl: String
+}
+
+type Skill @table {
+  user: User!
+  name: String!
+  proficiencyLevel: String
+  category: String
+}
+
+type Experience @table {
+  user: User!
+  title: String!
+  organization: String!
+  startDate: Date!
+  endDate: Date
+  description: String
+  type: String
+}
+
+type ProjectImage @table {
+  project: Project!
+  imageUrl: String!
+  position: Int!
+  caption: String
+}

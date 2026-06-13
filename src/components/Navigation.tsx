@@ -7,7 +7,7 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
   { to: "/skills", label: "Skills" },
-  { to: "/articles", label: "Articles" },
+  { to: "/articles", label: "Achievements" },
   { to: "/coding", label: "Coding" },
   { to: "/resume", label: "Resume" },
   { to: "/contact", label: "Contact" },
@@ -27,8 +27,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="glass rounded-2xl px-5 py-3 flex items-center justify-between">
           <NavLink to="/" className="font-display font-bold text-xl tracking-tight">
-            <span className="text-gradient-primary">NOVA</span>
-            <span className="text-foreground">.dev</span>
+            <span className="text-gradient-primary">MYPORTFOLIO</span>
+            <span className="text-foreground"></span>
           </NavLink>
 
           {/* Desktop */}

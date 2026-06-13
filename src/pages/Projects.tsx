@@ -6,48 +6,29 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "Nebula Dashboard",
-    desc: "A real-time analytics dashboard with WebGL data viz and live streaming charts.",
-    tags: ["React", "Three.js", "WebSockets"],
-    color: "from-cyan-500/40 to-blue-600/40",
+    title: "AI-Farming Guide",
+    desc: "An intelligent agriculture platform featuring AI-driven crop diagnostics, real-time market insights, and a multilingual voice assistant for modern farmers.",
+    tags: ["React", "Spring Boot", "AI/ML", "Multilingual"],
+    color: "from-emerald-500/40 to-green-600/40",
+    github: "https://github.com/Kamaleshap",
+    live: "https://ai-farm-guide-frontend-l999.vercel.app/"
   },
   {
-    title: "Pulse Music App",
-    desc: "AI-powered music recommendations with mood-based playlists and waveform UI.",
-    tags: ["Next.js", "TensorFlow", "Web Audio"],
-    color: "from-pink-500/40 to-purple-600/40",
-  },
-  {
-    title: "Orbit CRM",
-    desc: "An enterprise CRM with smart pipelines, workflow automation, and SSO.",
-    tags: ["TypeScript", "Postgres", "tRPC"],
+    title: "Learning Outcomes Monitoring (LOMS)",
+    desc: "Developed a web-based system using Java, MySQL, and React to monitor and evaluate student learning outcomes, featuring a dashboard for visualization and reporting to support academic decisions.",
+    tags: ["Java", "MySQL", "React", "Spring Boot"],
     color: "from-purple-500/40 to-fuchsia-600/40",
-  },
-  {
-    title: "Drift Generative Art",
-    desc: "An open-source generative art studio. Used by 12k+ artists worldwide.",
-    tags: ["WebGL", "GLSL", "Canvas"],
-    color: "from-emerald-500/40 to-cyan-600/40",
-  },
-  {
-    title: "Aurora Mobile",
-    desc: "Cross-platform meditation app with biometric sync and adaptive soundscapes.",
-    tags: ["React Native", "Expo", "HealthKit"],
-    color: "from-orange-500/40 to-pink-600/40",
-  },
-  {
-    title: "Vault Wallet",
-    desc: "Multi-chain Web3 wallet featuring hardware integration and gasless txs.",
-    tags: ["Solidity", "Wagmi", "Viem"],
-    color: "from-amber-500/40 to-red-600/40",
+    github: "https://github.com/Kamaleshap",
+    live: "https://loms-frontend-eg5e.vercel.app/" 
   },
 ];
 
 const Projects = () => {
   const [hovered, setHovered] = useState<number | null>(null);
+
   return (
     <PageWrapper variant="fade">
-      <section className="relative">
+      <section className="relative min-h-screen py-20">
         <GradientOrbs />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -60,11 +41,12 @@ const Projects = () => {
               Projects I'm <span className="text-gradient-primary">proud of</span>.
             </h1>
             <p className="mt-4 text-muted-foreground text-lg">
-              A selection of recent client and personal work — hover to peek inside.
+              Showcasing my expertise in Full Stack Development and Java Backend.
             </p>
           </motion.div>
 
-          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Added items-start to keep cards aligned at the top if heights vary */}
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
             {projects.map((p, i) => (
               <motion.article
                 key={p.title}
@@ -74,24 +56,22 @@ const Projects = () => {
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
-                whileHover={{ y: -10, rotateX: 4, rotateY: -4 }}
-                style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-                className="group relative glass rounded-2xl p-6 overflow-hidden cursor-pointer"
+                whileHover={{ y: -10, rotateX: 2, rotateY: -2 }}
+                className="group relative glass rounded-2xl p-6 overflow-hidden border border-white/5 flex flex-col h-full"
               >
-                {/* Animated colored aura */}
                 <motion.div
                   animate={{ opacity: hovered === i ? 0.6 : 0.2 }}
                   className={`absolute -inset-px rounded-2xl bg-gradient-to-br ${p.color} blur-2xl -z-10`}
                 />
 
-                <div className="aspect-video rounded-xl bg-gradient-to-br from-muted to-background mb-5 relative overflow-hidden">
+                <div className="aspect-video rounded-xl bg-slate-900 mb-5 relative overflow-hidden border border-white/10 shrink-0">
                   <motion.div
-                    animate={hovered === i ? { scale: 1.1, rotate: 6 } : { scale: 1, rotate: 0 }}
+                    animate={hovered === i ? { scale: 1.1, rotate: 3 } : { scale: 1, rotate: 0 }}
                     transition={{ duration: 0.6 }}
-                    className={`absolute inset-0 bg-gradient-to-br ${p.color}`}
+                    className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-40`}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-display text-5xl font-bold text-foreground/20">
+                    <span className="font-display text-5xl font-bold text-white/10">
                       0{i + 1}
                     </span>
                   </div>
@@ -100,21 +80,35 @@ const Projects = () => {
                 <h3 className="font-display text-xl font-bold group-hover:text-primary transition-colors">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                
+                {/* FIX: Removed fixed h-20 and overflow-hidden to allow full text display */}
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-grow">
+                  {p.desc}
+                </p>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2 shrink-0">
                   {p.tags.map((t) => (
-                    <span key={t} className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted/50 text-muted-foreground">
+                    <span key={t} className="text-[10px] font-mono px-2 py-1 rounded-md bg-white/5 text-primary border border-primary/20">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-5 flex items-center gap-3 text-sm">
-                  <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-1.5 text-primary hover:text-primary-glow">
-                    <ExternalLink size={14} /> Live
+                <div className="mt-5 flex items-center gap-4 text-sm pt-5 border-t border-white/5 shrink-0">
+                  <a 
+                    href={p.live} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="flex items-center gap-1.5 text-primary hover:underline"
+                  >
+                    <ExternalLink size={14} /> Live Demo
                   </a>
-                  <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground">
+                  <a 
+                    href={p.github}
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="flex items-center gap-1.5 text-muted-foreground hover:text-white"
+                  >
                     <Github size={14} /> Code
                   </a>
                 </div>

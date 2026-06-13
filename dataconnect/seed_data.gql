@@ -1,0 +1,87 @@
+mutation CreateDemoData @transaction {
+  user_insertMany(data: [
+    {
+      id: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      displayName: "John Doe",
+      email: "john.doe@example.com",
+      createdAt: "2023-01-01T00:00:00Z",
+      bio: "A passionate developer with experience in web and mobile technologies.",
+      photoUrl: "https://example.com/john_doe.jpg",
+      linkedinUrl: "https://linkedin.com/in/johndoe",
+      githubUrl: "https://github.com/johndoe",
+      personalWebsiteUrl: "https://johndoe.dev",
+      isPublic: true
+    }
+  ])
+  experience_insertMany(data: [
+    {
+      id: "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      title: "Software Engineer",
+      organization: "Tech Solutions Inc.",
+      startDate: "2020-06-01",
+      endDate: "2022-12-31",
+      description: "Developed and maintained web applications using React and Node.js.",
+      type: "Full-time"
+    },
+    {
+      id: "8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      title: "Lead Developer",
+      organization: "Innovate Labs",
+      startDate: "2023-01-15",
+      description: "Led a team of developers in building scalable cloud-based solutions.",
+      type: "Full-time"
+    }
+  ])
+  project_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      title: "Portfolio Website",
+      description: "A personal portfolio website to showcase projects and skills.",
+      createdAt: "2023-03-10T10:00:00Z",
+      liveUrl: "https://myportfolio.dev",
+      githubUrl: "https://github.com/johndoe/portfolio",
+      technologies: ["React", "Firebase", "GraphQL"],
+      coverImageUrl: "https://example.com/portfolio_cover.jpg"
+    }
+  ])
+  projectImage_insertMany(data: [
+    {
+      projectId: "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      imageUrl: "https://example.com/portfolio_screenshot1.jpg",
+      position: 1,
+      caption: "Homepage screenshot"
+    },
+    {
+      projectId: "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      imageUrl: "https://example.com/portfolio_screenshot2.jpg",
+      position: 2,
+      caption: "Project details page"
+    }
+  ])
+  skill_insertMany(data: [
+    {
+      id: "f9e8d7c6-b5a4-3f2e-1d0c-a9b8c7d6e5f4",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      name: "React",
+      proficiencyLevel: "Expert",
+      category: "Frontend"
+    },
+    {
+      id: "5b4a3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      name: "Node.js",
+      proficiencyLevel: "Advanced",
+      category: "Backend"
+    },
+    {
+      id: "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+      userId: "6e2e505a-3c72-4d7a-8b6d-9e3f3b9c1d2a",
+      name: "PostgreSQL",
+      proficiencyLevel: "Intermediate",
+      category: "Database"
+    }
+  ])
+}
